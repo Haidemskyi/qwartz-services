@@ -1112,6 +1112,204 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ─── Mobile-First Responsive Overhaul ──────────────────── */
+
+    /* Hamburger → X animation */
+    .nav-hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-hamburger.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .nav-hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      /* ── Navbar ── */
+      #navbar {
+        background: rgba(6, 14, 30, 0.98);
+        backdrop-filter: blur(12px);
+      }
+      .nav-links {
+        background: var(--blue-950);
+        border-top: 1px solid rgba(59, 130, 246, 0.15);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        padding: 24px 24px 32px;
+        gap: 8px;
+      }
+      .nav-links li {
+        width: 100%;
+      }
+      .nav-links a {
+        display: block;
+        padding: 12px 0;
+        font-size: 16px;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(59, 130, 246, 0.08);
+        color: var(--slate-300);
+      }
+      .nav-links li:last-child a {
+        border-bottom: none;
+        margin-top: 8px;
+      }
+      .nav-cta {
+        display: block;
+        text-align: center;
+        padding: 14px 20px !important;
+        font-size: 16px !important;
+        border-radius: 10px !important;
+      }
+
+      /* ── Hero ── */
+      #hero {
+        padding: 100px 20px 60px;
+        min-height: 100svh;
+        align-items: flex-start;
+        padding-top: 110px;
+      }
+      .hero-badge {
+        font-size: 12px;
+        padding: 5px 14px;
+        margin-bottom: 20px;
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+      }
+      .hero-title {
+        font-size: clamp(36px, 10vw, 56px);
+        letter-spacing: -0.02em;
+      }
+      .hero-sub {
+        font-size: 16px;
+        margin-top: 16px;
+        max-width: 100%;
+      }
+      .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 28px;
+      }
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        font-size: 16px;
+        padding: 16px 24px;
+      }
+      .hero-trust {
+        gap: 12px;
+        margin-top: 32px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .trust-item {
+        font-size: 12px;
+        gap: 6px;
+      }
+
+      /* ── Services ── */
+      #services {
+        padding: 70px 20px;
+      }
+      #services .section-intro {
+        margin-bottom: 36px;
+      }
+      .service-card {
+        padding: 28px 22px;
+      }
+
+      /* ── Why Us ── */
+      #why-us {
+        padding: 70px 20px;
+      }
+      .why-cards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .why-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 18px 16px;
+      }
+      .why-card-icon {
+        font-size: 24px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .why-card h4 {
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
+      .why-card p {
+        font-size: 13px;
+      }
+      .llc-badge {
+        width: 100%;
+        padding: 14px 16px;
+      }
+
+      /* ── Process ── */
+      #process {
+        padding: 70px 20px;
+      }
+      #process .section-intro {
+        margin-bottom: 40px;
+      }
+
+      /* ── Contact ── */
+      #contact {
+        padding: 70px 20px 80px;
+      }
+      .contact-form {
+        padding: 28px 20px;
+      }
+
+      /* ── Footer ── */
+      footer {
+        padding: 32px 20px;
+      }
+      .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+      }
+      .footer-links {
+        gap: 20px;
+      }
+
+      /* ── Toast ── */
+      #toast {
+        left: 16px;
+        right: 16px;
+        bottom: 20px;
+        text-align: center;
+      }
+
+      /* ── Sections typography ── */
+      .section-title {
+        font-size: clamp(26px, 7vw, 38px);
+      }
+      .section-sub {
+        font-size: 15px;
+      }
+    }
+
+    /* Extra small: 375px and below */
+    @media (max-width: 400px) {
+      .hero-trust {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: clamp(32px, 9vw, 44px);
+      }
+    }
   </style>
 </head>
 
@@ -1477,13 +1675,17 @@
     const navLinks = document.getElementById('navLinks');
     hamburgerBtn.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('open');
+      hamburgerBtn.classList.toggle('active', isOpen);
       hamburgerBtn.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
     // Close menu on nav link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
+        hamburgerBtn.classList.remove('active');
         hamburgerBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       });
     });
 
