@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qwartz Services — Moving, Assembly & IT Support | Licensed LLC</title>
+  <meta name="description"
+    content="Qwartz Services is a licensed LLC offering professional moving, furniture assembly, and IT support in your area. Reliable, efficient, and all-in-one. Get a free quote today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ─── CSS Reset & Variables ─────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue-950: #060e1e;
+      --blue-900: #0a1628;
+      --blue-800: #0d1f3c;
+      --blue-700: #112952;
+      --blue-600: #1a3a6b;
+      --blue-500: #1e4d91;
+      --blue-400: #2563b8;
+      --blue-300: #3b82d6;
+      --blue-200: #93c5fd;
+      --blue-100: #dbeafe;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-400: #94a3b8;
+      --slate-300: #cbd5e1;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --white: #ffffff;
+      --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.25);
+      --gold: #f59e0b;
+      --shadow-card: 0 4px 24px rgba(6, 14, 30, 0.18);
+      --shadow-lg: 0 8px 40px rgba(6, 14, 30, 0.28);
+      --radius: 14px;
+      --radius-sm: 8px;
+      --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--blue-950);
+      color: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Utility ───────────────────────────────────────────── */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-300);
+      margin-bottom: 14px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--blue-400);
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.18;
+      color: var(--white);
+    }
+
+    .section-title span {
+      color: var(--blue-300);
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--slate-400);
+      margin-top: 14px;
+      max-width: 580px;
+      line-height: 1.75;
+    }
+
+    /* ─── Navbar ────────────────────────────────────────────── */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 24px;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    #navbar.scrolled {
+      background: rgba(6, 14, 30, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--blue-300);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate-400);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      background: var(--blue-500);
+      color: var(--white) !important;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      transition: background var(--transition), transform var(--transition) !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--blue-400) !important;
+      transform: translateY(-1px);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    @media (max-width: 768px) {
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--blue-900);
+        flex-direction: column;
+        padding: 20px 24px 28px;
+        gap: 20px;
+        border-bottom: 1px solid var(--blue-700);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+    }
+
+    /* ─── Hero ──────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 24px 80px;
+    }
+
+    /* Animated mesh background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 0%, rgba(30, 77, 145, 0.45) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(59, 130, 246, 0.18) 0%, transparent 60%),
+        linear-gradient(180deg, var(--blue-950) 0%, var(--blue-900) 100%);
+      z-index: 0;
+    }
+
+    /* Decorative grid lines */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(37, 99, 184, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 184, 0.08) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(37, 99, 184, 0.18);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue-200);
+      margin-bottom: 28px;
+      animation: fadeSlideDown 0.6s ease both;
+    }
+
+    .hero-badge::before {
+      content: '✦';
+      font-size: 10px;
+      color: var(--blue-300);
+    }
+
+    .hero-title {
+      font-size: clamp(40px, 6.5vw, 76px);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      animation: fadeSlideDown 0.6s 0.1s ease both;
+    }
+
+    .hero-title .line1 {
+      color: var(--white);
+    }
+
+    .hero-title .line2 {
+      background: linear-gradient(135deg, var(--blue-300) 0%, #60a5fa 50%, var(--blue-200) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--slate-400);
+      max-width: 580px;
+      margin-top: 22px;
+      line-height: 1.75;
+      animation: fadeSlideDown 0.6s 0.2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+      animation: fadeSlideDown 0.6s 0.3s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-400) 100%);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 15px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(37, 99, 184, 0.45);
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 36px rgba(37, 99, 184, 0.6);
+    }
+
+    .btn-primary:hover::after {
+      opacity: 1;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--slate-300);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 15px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid rgba(203, 213, 225, 0.18);
+      cursor: pointer;
+      transition: border-color var(--transition), color var(--transition), background var(--transition);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--blue-400);
+      color: var(--white);
+      background: rgba(37, 99, 184, 0.1);
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+      animation: fadeSlideDown 0.6s 0.4s ease both;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--slate-400);
+      font-weight: 500;
+    }
+
+    .trust-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.2);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--blue-300);
+      flex-shrink: 0;
+    }
+
+    /* Floating cards (hero visual) */
+    .hero-visual {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      animation: float 6s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-visual {
+        display: none;
+      }
+    }
+
+    .float-card {
+      background: rgba(13, 31, 60, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 240px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .float-card-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .float-card-text {
+      flex: 1;
+    }
+
+    .float-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .float-card-sub {
+      font-size: 12px;
+      color: var(--slate-400);
+      margin-top: 2px;
+    }
+
+    /* ─── Services ──────────────────────────────────────────── */
+    #services {
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    #services .section-intro {
+      margin-bottom: 56px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: linear-gradient(145deg, var(--blue-800) 0%, var(--blue-900) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.12);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue-500), var(--blue-300));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(59, 130, 246, 0.35);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon-wrap {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .service-card h3 {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      font-size: 15px;
+      color: var(--slate-400);
+      line-height: 1.7;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--slate-300);
+    }
+
+    .service-features li::before {
+      content: '→';
+      color: var(--blue-400);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 24px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--blue-300);
+      text-decoration: none;
+      transition: gap var(--transition), color var(--transition);
+    }
+
+    .service-link:hover {
+      gap: 10px;
+      color: var(--blue-200);
+    }
+
+    /* ─── Why Us ────────────────────────────────────────────── */
+    #why-us {
+      padding: 100px 24px;
+      background: linear-gradient(180deg, var(--blue-900) 0%, var(--blue-800) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #why-us::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(30, 77, 145, 0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .why-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      .why-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .why-left .section-sub {
+      max-width: 100%;
+    }
+
+    .llc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(30, 77, 145, 0.35) 0%, rgba(37, 99, 184, 0.2) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      border-radius: 12px;
+      padding: 16px 22px;
+      margin-top: 28px;
+    }
+
+    .llc-badge-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue-500), var(--blue-400));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .llc-badge-text strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .llc-badge-text span {
+      font-size: 12px;
+      color: var(--slate-400);
+    }
+
+    .why-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .why-card {
+      background: rgba(6, 14, 30, 0.5);
+      border: 1px solid rgba(59, 130, 246, 0.12);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    .why-card:hover {
+      border-color: rgba(59, 130, 246, 0.35);
+      background: rgba(13, 31, 60, 0.7);
+    }
+
+    .why-card-icon {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .why-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .why-card p {
+      font-size: 13px;
+      color: var(--slate-400);
+      line-height: 1.6;
+    }
+
+    /* ─── Process ───────────────────────────────────────────── */
+    #process {
+      padding: 100px 24px;
+      text-align: center;
+    }
+
+    #process .section-intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 64px;
+    }
+
+    #process .section-intro .section-label {
+      justify-content: center;
+    }
+
+    #process .section-intro .section-sub {
+      text-align: center;
+      margin: 14px auto 0;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 700px) {
+      .process-steps {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .process-connector {
+        display: none;
+      }
+    }
+
+    /* connector line between steps */
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: calc(16.66% + 20px);
+      right: calc(16.66% + 20px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue-500), var(--blue-400), var(--blue-500));
+      z-index: 0;
+    }
+
+    @media (max-width: 700px) {
+      .process-steps::before {
+        display: none;
+      }
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-500) 100%);
+      border: 3px solid var(--blue-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 24px;
+      box-shadow: 0 0 0 8px rgba(37, 99, 184, 0.15);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+    }
+
+    .process-step:hover .step-number {
+      transform: scale(1.08);
+      box-shadow: 0 0 0 12px rgba(37, 99, 184, 0.2);
+    }
+
+    .process-step h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .process-step p {
+      font-size: 14px;
+      color: var(--slate-400);
+      line-height: 1.7;
+      max-width: 220px;
+    }
+
+    /* ─── Contact ───────────────────────────────────────────── */
+    #contact {
+      padding: 100px 24px 120px;
+      background: linear-gradient(180deg, var(--blue-900) 0%, var(--blue-950) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      bottom: -120px;
+      right: -80px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(37, 99, 184, 0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .contact-info h2 {
+      font-size: clamp(28px, 3.5vw, 38px);
+      font-weight: 800;
+    }
+
+    .contact-info .section-sub {
+      max-width: 100%;
+    }
+
+    .contact-details {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 15px;
+      color: var(--slate-300);
+    }
+
+    .contact-detail-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(30, 77, 145, 0.35);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .contact-form {
+      background: linear-gradient(145deg, var(--blue-800) 0%, var(--blue-900) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.15);
+      border-radius: 18px;
+      padding: 40px 36px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 500px) {
+      .contact-form {
+        padding: 28px 20px;
+      }
+    }
+
+    .form-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .form-title span {
+      color: var(--blue-300);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 500px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-300);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(6, 14, 30, 0.6);
+      border: 1px solid rgba(71, 85, 105, 0.5);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 15px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      width: 100%;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--slate-600);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue-400);
+      box-shadow: 0 0 0 3px rgba(37, 99, 184, 0.2);
+    }
+
+    .form-group select option {
+      background: var(--blue-800);
+      color: var(--white);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, var(--blue-500), var(--blue-400));
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37, 99, 184, 0.4);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37, 99, 184, 0.6);
+    }
+
+    .form-disclaimer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--slate-500);
+      margin-top: 14px;
+    }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    footer {
+      background: var(--blue-950);
+      border-top: 1px solid rgba(59, 130, 246, 0.1);
+      padding: 40px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--white);
+    }
+
+    .footer-logo span {
+      color: var(--blue-300);
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--slate-500);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--slate-500);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--blue-300);
+    }
+
+    /* ─── Animations ────────────────────────────────────────── */
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(-50%);
+      }
+
+      50% {
+        transform: translateY(calc(-50% - 14px));
+      }
+    }
+
+    /* Scroll-reveal via JS class */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    /* ─── Success Toast ──────────────────────────────────────── */
+    #toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+      color: var(--white);
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      z-index: 200;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════ NAVBAR ═══ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Qwartz Services Home">Qwartz<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#contact" class="nav-cta" id="navCtaBtn">Get a Quote</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════ HERO ════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Licensed LLC · Serving Homeowners, Renters & Small Businesses</div>
+      <h1 class="hero-title">
+        <span class="line1">One Company.<br>Every Job Done.</span><br>
+        <span class="line2">Right.</span>
+      </h1>
+      <p class="hero-sub">
+        From heavy lifts to hardware fixes — Qwartz Services handles moving, furniture assembly, and IT support so you
+        can focus on what matters most.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary" id="heroQuoteBtn">
+          Get a Free Quote
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#services" class="btn-secondary" id="heroServicesBtn">
+          View Services
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <span class="trust-check">✓</span> Licensed & Insured LLC
+        </div>
+        <div class="trust-item">
+          <span class="trust-check">✓</span> Transparent Pricing
+        </div>
+        <div class="trust-item">
+          <span class="trust-check">✓</span> Same-Day Availability
+        </div>
+        <div class="trust-item">
+          <span class="trust-check">✓</span> Satisfaction Guaranteed
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating service cards (decorative) -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="float-card">
+        <div class="float-card-icon" style="background: rgba(30,77,145,0.4);">🚛</div>
+        <div class="float-card-text">
+          <div class="float-card-title">Full & Mini Moves</div>
+          <div class="float-card-sub">Stress-free relocation</div>
+        </div>
+      </div>
+      <div class="float-card">
+        <div class="float-card-icon" style="background: rgba(37,99,184,0.35);">🔧</div>
+        <div class="float-card-text">
+          <div class="float-card-title">Furniture Assembly</div>
+          <div class="float-card-sub">Fast, precise, professional</div>
+        </div>
+      </div>
+      <div class="float-card">
+        <div class="float-card-icon" style="background: rgba(59,130,246,0.25);">💻</div>
+        <div class="float-card-text">
+          <div class="float-card-title">IT & PC Support</div>
+          <div class="float-card-sub">Clear answers, real fixes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ SERVICES ═ -->
+  <section id="services">
+    <div class="container">
+      <div class="section-intro reveal">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">All-In-One Services,<br><span>Zero Runaround</span></h2>
+        <p class="section-sub">Stop juggling vendors. Qwartz handles moving, assembly, and tech under one roof — so
+          every job is handled by people who actually show up.</p>
+      </div>
+      <div class="services-grid">
+
+        <!-- Moving -->
+        <article class="service-card reveal reveal-delay-1" id="movingCard">
+          <div class="service-icon-wrap"
+            style="background: linear-gradient(135deg, rgba(30,77,145,0.5), rgba(37,99,184,0.3));">
+            🚛
+          </div>
+          <h3>Moving Services</h3>
+          <p>Whether it's a studio apartment or a full home, we handle every aspect of your relocation with care and
+            efficiency.</p>
+          <ul class="service-features">
+            <li>Full home &amp; apartment moves</li>
+            <li>Mini-moves &amp; single-item hauls</li>
+            <li>Packing, loading &amp; unloading</li>
+            <li>Furniture disassembly &amp; reassembly</li>
+          </ul>
+          <a href="#contact" class="service-link" id="movingQuoteLink">
+            Get a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </article>
+
+        <!-- Assembly -->
+        <article class="service-card reveal reveal-delay-2" id="assemblyCard">
+          <div class="service-icon-wrap"
+            style="background: linear-gradient(135deg, rgba(30,77,145,0.5), rgba(37,99,184,0.3));">
+            🔧
+          </div>
+          <h3>Furniture Assembly &amp; Delivery</h3>
+          <p>Skip the instruction manual headache. Our team assembles flat-pack furniture quickly and precisely, exactly
+            where you need it.</p>
+          <ul class="service-features">
+            <li>IKEA, Wayfair &amp; all major brands</li>
+            <li>Beds, desks, shelves, wardrobes &amp; more</li>
+            <li>In-room delivery &amp; placement</li>
+            <li>Same-day scheduling available</li>
+          </ul>
+          <a href="#contact" class="service-link" id="assemblyQuoteLink">
+            Get a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </article>
+
+        <!-- IT Support -->
+        <article class="service-card reveal reveal-delay-3" id="itCard">
+          <div class="service-icon-wrap"
+            style="background: linear-gradient(135deg, rgba(30,77,145,0.5), rgba(37,99,184,0.3));">
+            💻
+          </div>
+          <h3>IT Support &amp; PC Troubleshooting</h3>
+          <p>Slow PC, network issues, or software chaos? We diagnose and fix tech problems clearly and honestly — no
+            jargon, no upsells.</p>
+          <ul class="service-features">
+            <li>PC &amp; laptop diagnostics &amp; repair</li>
+            <li>Virus, malware &amp; slowdown removal</li>
+            <li>Network setup &amp; WiFi optimization</li>
+            <li>Small business workstation support</li>
+          </ul>
+          <a href="#contact" class="service-link" id="itQuoteLink">
+            Get a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ WHY US ═══ -->
+  <section id="why-us">
+    <div class="container">
+      <div class="why-layout">
+        <div class="why-left reveal">
+          <span class="section-label">Why Qwartz</span>
+          <h2 class="section-title">Reliable Help from a<br><span>Licensed Business</span></h2>
+          <p class="section-sub">
+            We're not a random app or gig listing. Qwartz LLC is a registered, licensed company built on accountability.
+            When we show up, the job gets done — period.
+          </p>
+          <div class="llc-badge">
+            <div class="llc-badge-icon">🏛️</div>
+            <div class="llc-badge-text">
+              <strong>Qwartz LLC — Legally Registered</strong>
+              <span>Licensed, insured &amp; professionally accountable</span>
+            </div>
+          </div>
+        </div>
+        <div class="why-cards">
+          <div class="why-card reveal reveal-delay-1" id="whyCard1">
+            <div class="why-card-icon">⏱️</div>
+            <h4>On Time, Every Time</h4>
+            <p>We respect your schedule. No vague arrival windows — we show up when we say we will.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-2" id="whyCard2">
+            <div class="why-card-icon">🔒</div>
+            <h4>Licensed &amp; Insured</h4>
+            <p>Your property is protected. As a licensed LLC we carry full liability coverage on every job.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-1" id="whyCard3">
+            <div class="why-card-icon">💬</div>
+            <h4>Clear Communication</h4>
+            <p>You'll always know what's happening. Real quotes, real timelines, no surprise charges.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-2" id="whyCard4">
+            <div class="why-card-icon">🎯</div>
+            <h4>One Call, All Services</h4>
+            <p>Moving into a new place? We'll move you in, assemble your furniture, and set up your tech.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-1" id="whyCard5">
+            <div class="why-card-icon">🤝</div>
+            <h4>Honest Pricing</h4>
+            <p>Flat-rate and hourly options with no hidden fees. Know exactly what you pay before we start.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-2" id="whyCard6">
+            <div class="why-card-icon">⭐</div>
+            <h4>Satisfaction Guaranteed</h4>
+            <p>Not happy with the result? We make it right. Your satisfaction is non-negotiable for us.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ PROCESS ══ -->
+  <section id="process">
+    <div class="container">
+      <div class="section-intro">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">Get Help in <span>3 Simple Steps</span></h2>
+        <p class="section-sub">No complicated forms. No long wait. Just tell us what you need and we'll handle the rest.
+        </p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal" id="step1">
+          <div class="step-number">1</div>
+          <h3>Request a Quote</h3>
+          <p>Fill out our quick contact form or call us directly. Tell us what you need and when.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1" id="step2">
+          <div class="step-number">2</div>
+          <h3>Confirm &amp; Schedule</h3>
+          <p>We'll send a clear, upfront quote within hours. Pick a time that works for you.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2" id="step3">
+          <div class="step-number">3</div>
+          <h3>We Show Up &amp; Deliver</h3>
+          <p>Our team arrives on time, gets the job done right, and doesn't leave until you're satisfied.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ CONTACT ══ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-info reveal">
+          <span class="section-label">Get in Touch</span>
+          <h2 class="section-title">Ready to Get<br><span>Started?</span></h2>
+          <p class="section-sub">
+            Send us a message and we'll get back to you with a free, no-obligation quote — usually within a few hours.
+          </p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📞</div>
+              <span>We respond to all quote requests within 2–4 hours</span>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📍</div>
+              <span>Serving local homeowners, renters &amp; small businesses</span>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">🗓️</div>
+              <span>Available 7 days a week, including weekends</span>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">🏛️</div>
+              <span>Qwartz LLC — Registered &amp; Licensed Business</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form reveal reveal-delay-1">
+          <div class="form-title">Get Your Free Quote — <span>No Commitment</span></div>
+          <form id="quoteForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nameInput">Full Name *</label>
+                <input type="text" id="nameInput" name="name" placeholder="Jane Smith" required autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="phoneInput">Phone Number *</label>
+                <input type="tel" id="phoneInput" name="phone" placeholder="(555) 000-0000" required
+                  autocomplete="tel" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="emailInput">Email Address</label>
+              <input type="email" id="emailInput" name="email" placeholder="jane@email.com" autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="serviceSelect">Service Needed *</label>
+              <select id="serviceSelect" name="service" required>
+                <option value="" disabled selected>Select a service…</option>
+                <option value="full-move">Full Home / Apartment Move</option>
+                <option value="mini-move">Mini Move / Single-Item Haul</option>
+                <option value="assembly">Furniture Assembly &amp; Delivery</option>
+                <option value="it-support">IT Support &amp; PC Troubleshooting</option>
+                <option value="multiple">Multiple Services</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="messageInput">Tell Us More *</label>
+              <textarea id="messageInput" name="message"
+                placeholder="Describe your request — location, timeline, any relevant details…" required></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="submitQuoteBtn">
+              Send My Free Quote Request
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+              </svg>
+            </button>
+            <p class="form-disclaimer">🔒 Your info is private. We never share your data. No spam, ever.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Qwartz<span>.</span></div>
+      <p class="footer-copy">© 2025 Qwartz LLC. All rights reserved. Licensed &amp; Insured.</p>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ─── Toast Notification ────────────────────────────────── -->
+  <div id="toast" role="status" aria-live="polite">✅ Message sent! We'll be in touch soon.</div>
+
+  <!-- ═══════════════════════════════════════════ SCRIPTS ══ -->
+  <script>
+    // ── Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Hamburger menu
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navLinks = document.getElementById('navLinks');
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    });
+    // Close menu on nav link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ── Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ── Contact form submission
+    const quoteForm = document.getElementById('quoteForm');
+    const toast = document.getElementById('toast');
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4200);
+    }
+
+    const N8N_WEBHOOK = 'https://n8n.control-app.work/webhook/08a06075-3cb9-474d-85a1-5492524a058e';
+    const SUBMIT_ICON = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>`;
+
+    quoteForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('nameInput').value.trim();
+      const phone = document.getElementById('phoneInput').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+      const service = document.getElementById('serviceSelect').value;
+      const message = document.getElementById('messageInput').value.trim();
+
+      if (!name || !phone || !service || !message) {
+        showToast('⚠️ Please fill in all required fields.');
+        return;
+      }
+
+      const submitBtn = document.getElementById('submitQuoteBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending…';
+
+      try {
+        const response = await fetch(N8N_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            phone,
+            email,
+            service,
+            message,
+            submitted_at: new Date().toISOString(),
+            source: 'Qwartz Services Landing Page'
+          })
+        });
+
+        if (response.ok) {
+          quoteForm.reset();
+          showToast("✅ Message sent! We'll be in touch within a few hours.");
+        } else {
+          showToast('⚠️ Something went wrong. Please try again or call us directly.');
+        }
+      } catch (err) {
+        console.error('Form submission error:', err);
+        showToast('⚠️ Network error. Please check your connection and try again.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `Send My Free Quote Request ${SUBMIT_ICON}`;
+      }
+    });
+
+    // ── Phone number auto-formatting
+    const phoneInput = document.getElementById('phoneInput');
+    phoneInput.addEventListener('input', () => {
+      let val = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+      if (val.length >= 7) {
+        val = `(${val.slice(0, 3)}) ${val.slice(3, 6)}-${val.slice(6)}`;
+      } else if (val.length >= 4) {
+        val = `(${val.slice(0, 3)}) ${val.slice(3)}`;
+      } else if (val.length >= 1) {
+        val = `(${val}`;
+      }
+      phoneInput.value = val;
+    });
+  </script>
+</body>
+
+</html>
